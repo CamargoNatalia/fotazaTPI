@@ -8,16 +8,12 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-// ===============================
 // CONFIGURACIÓN PUG
-// ===============================
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-// ===============================
 // MIDDLEWARES
-// ===============================
 
 app.use(express.json());
 
@@ -37,17 +33,10 @@ app.use(session({
   }
 }));
 
-// ===============================
-// RUTA DE PRUEBA
-// ===============================
-
 app.get('/', (req, res) => {
-  res.send('Fotaza 2 funcionando correctamente');
+  res.send('funcionando correctamente');
 });
-
-// ===============================
-// PRUEBA DE CONEXIÓN + SERVIDOR
-// ===============================
+//SERVIDOR
 
 sequelize.authenticate()
   .then(() => {
