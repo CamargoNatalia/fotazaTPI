@@ -1,0 +1,23 @@
+{
+  "name": "fotazatpi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "multer": "^2.1.1",
+    "mysql2": "^3.22.4",
+    "pug": "^3.0.4",
+    "sequelize": "^6.37.8",
+    "sharp": "^0.34.5"
+  }
+}
