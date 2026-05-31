@@ -57,3 +57,27 @@ Usuario.init(
 );
 
 module.exports = Usuario;
+
+
+
+/*
+CREATE DATABASE fotaza_db;
+
+USE fotaza_db;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    
+    nombre VARCHAR(255) NOT NULL,
+    
+    email VARCHAR(255) NOT NULL UNIQUE,
+    
+    dni INT NOT NULL UNIQUE,
+    
+    password VARCHAR(255) NOT NULL,
+    
+    rol VARCHAR(255) NOT NULL DEFAULT 'usuario',
+    
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
+);  
+*/
