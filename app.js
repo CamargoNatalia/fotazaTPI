@@ -1,54 +1,69 @@
+//Dependecias
+// npm install express sequelize mysql2 multer express-session pug bcrypt dotenv sharp
+
 require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
-const sequelize = require('./models/db');
 
 const app = express();
+const sequelize = require('./models/db');
+
+// Middleware
+const { getCurrentUser } = require('./middleware/auth');
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(getCurrentUser);
+
 
 const PORT = process.env.PORT || 3000;
 
-// CONFIGURACIÓN PUG
+
+// Rutas principales
+
+const indexRoutes = require('./routes/principal/index');
+const usuariosRoutes = require('./routes/principal/usuarios');
+const administradorRoutes = require('./routes/principal/admin');
+
+
+// Configuración de Pug
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-// MIDDLEWARES
 
-app.use(express.json());
+// Configuración de sesión
 
-app.use(express.urlencoded({
-  extended: true
-}));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: false,
+      maxAge: 24 * 60 * 60 * 1000
+    }
+  })
+);
 
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-  secret: process.env.SESSION_SECRET || 'fotaza-secret-key',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    secure: false,
-    maxAge: 24 * 60 * 60 * 1000
-  }
-}));
+// Montaje de rutas
+app.use('/', indexRoutes);
+app.use('/usuarios', usuariosRoutes);
+app.use('/administrador', administradorRoutes);
 
-app.get('/', (req, res) => {
-  res.send('funcionando correctamente');
-});
-//SERVIDOR
 
-sequelize.authenticate()
+sequelize
+  .sync()
   .then(() => {
-    console.log('Conexión a MySQL OK');
+    console.log('Modelos sincronizados correctamente');
+
     app.listen(PORT, () => {
-        console.log(`Servidor escuchando en http://localhost:${PORT}`);
+      console.log(`Servidor iniciado en http://localhost:${PORT}`);
     });
   })
-  .catch(err => {
-    console.error('Error al conectar a MySQL:', err);
+  .catch((err) => {
+    console.error('Error al sincronizar modelos:', err);
   });
-
-   
-//Dependencias
-// npm install express sequelize mysql2 multer express-session pug bcrypt dotenv sharp
