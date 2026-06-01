@@ -53,15 +53,9 @@ CREATE TABLE publicaciones (
     id INT AUTO_INCREMENT PRIMARY KEY,
 
     descripcion TEXT NOT NULL,
-
-    ubicacion VARCHAR(255) DEFAULT '',
-
     fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
-
     comentarios_habilitados BOOLEAN NOT NULL DEFAULT TRUE,
-
     estadoPublicacion VARCHAR(50) NOT NULL DEFAULT 'activa',
-
     usuarioId INT NOT NULL,
 
     CONSTRAINT fk_publicacion_usuario

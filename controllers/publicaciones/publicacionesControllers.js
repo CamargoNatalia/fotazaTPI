@@ -1,30 +1,26 @@
 const Publicacion = require('../models/Publicacion');
-
 async function modificarEstadoComentarios(req, res) {
 
   try {
-    const publicacionId = req.params.id; //obtiene id
+    const publicacionId = req.params.id;
+    const usuarioId = req.session.userId;
 
-    const usuarioId = req.session.userId; //obtiene id de user logueado
-
-    const publicacion = await Publicacion.findByPk(publicacionId);// busca publicacion por id
+    //Busca publicacion
+    const publicacion = await Publicacion.findByPk(publicacionId);
 
     if (!publicacion) {
 
       return res.status(404).send('Publicación no encontrada');
-    } //valida si la publicacion existe
+    }
 
     if (publicacion.usuarioId !== usuarioId) {
 
       return res.status(403).send('No tienes permiso para modificar esta publicación');
-    } //valida si el usuario es el dueño de la publicacion
+    }
 
-    //cambia el estado de los comentarios
     publicacion.comentarios_habilitados =
       !publicacion.comentarios_habilitados;
-
     await publicacion.save();
-    
     res.redirect('/');
 
   } catch (error) {

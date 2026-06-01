@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const Usuario = require('../models/Usuario');
 
-// Middleware para verificar si el usuario está autenticado
+// verifica que el usuario esta autenticado
 const requireAuth = (req, res, next) => {
   if (!req.session.userId) {
     return res.redirect('/login');
@@ -9,19 +9,18 @@ const requireAuth = (req, res, next) => {
   next();
 };
 
-// Middleware para verificar credenciales de login
+//validacion del login
 const authenticateUser = async (req, res, next) => {
   try {
     const { dni, password } = req.body;
 
-    // Validar que se proporcionaron credenciales
     if (!dni || !password) {
       return res.render('login', {
         error: 'DNI y contraseña son requeridos'
       });
     }
 
-    // Buscar usuario por DNI
+    // Busca usuario X DNI
     const usuario = await Usuario.findOne({
       where: { dni: dni }
     });
@@ -32,7 +31,7 @@ const authenticateUser = async (req, res, next) => {
       });
     }
 
-    // Verificar contraseña
+    // Verifica contraseña
     const passwordValida = await usuario.validarPassword(password);
 
     if (!passwordValida) {
@@ -41,7 +40,7 @@ const authenticateUser = async (req, res, next) => {
       });
     }
 
-    // Login exitoso - guardar información en la sesión
+    //info del usuario logeado
     req.session.userId = usuario.id;
     req.session.dni = usuario.dni;
     req.session.nombre = usuario.nombre;
@@ -58,7 +57,7 @@ const authenticateUser = async (req, res, next) => {
   }
 };
 
-// Middleware para obtener información del usuario actual
+// info usuario actual
 const getCurrentUser = async (req, res, next) => {
   if (req.session.userId) {
     try {
@@ -73,7 +72,7 @@ const getCurrentUser = async (req, res, next) => {
 };
 
 
-// Middleware para verificar si el usuario tiene rol de admin
+// usuario tiene rol de admin
 const requireAdmin = (req, res, next) => {
   if (!req.session.userId || req.session.rol !== 'admin') {
     return res.status(403).send('Acceso denegado');
@@ -81,7 +80,7 @@ const requireAdmin = (req, res, next) => {
   next();
 };
 
-// Función para logout
+//salir
 const logout = (req, res) => {
   req.session.destroy((err) => {
     if (err) {
