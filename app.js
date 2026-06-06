@@ -31,10 +31,16 @@ const administradorRoutes = require('./routes/principal/admin');
 
 const subirRoutes = require('./routes/subirRoutes');
 const publicacionesRoutes = require('./routes/publicacionesRoutes');
-
 const etiquetasRoutes = require('./routes/etiquetas');
 const publicarEtiquetasRoutes = require('./routes/publicarEtiquetas');
 
+//interacciones del sistema
+const likesRoutes = require('./routes/like');
+const comentariosRoutes = require('./routes/comentarios');
+const valoracionesRoutes = require('./routes/valoracion');
+const denunciasRoutes = require('./routes/denuncias');
+const denunciasComentariosRoutes = require('./routes/denunciasComentarios');
+const notificacionesRoutes = require('./routes/notificaciones');
 
 // Configuración de Pug
 
@@ -68,6 +74,14 @@ app.use('/subir', subirRoutes);
 app.use('/publicaciones', publicacionesRoutes);
 app.use('/etiquetas', etiquetasRoutes);
 app.use('/publicarEtiquetas', publicarEtiquetasRoutes);
+
+//interacciones del sistema
+app.use('/likes', likesRoutes);
+app.use('/comentarios', comentariosRoutes);
+app.use('/valoraciones', valoracionesRoutes);
+app.use('/denuncias', denunciasRoutes);
+app.use('/denuncias-comentarios', denunciasComentariosRoutes);
+app.use('/notificaciones', notificacionesRoutes);
 
 sequelize
   .sync()
