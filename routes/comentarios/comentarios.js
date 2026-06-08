@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const comentarioController = require('../controllers/comentarioController');
-const { requireAuth } = require('../middleware/auth');
+const comentarioControllers = require('../controllers/comentarioControllers');
+const { requireAuth } = require('../../middleware/auth');
 
-router.post('/:publicacionId', requireAuth, comentarioController.crear);
+router.post('/:publicacionId', requireAuth, comentarioControllers.crear);
 
 module.exports = router;

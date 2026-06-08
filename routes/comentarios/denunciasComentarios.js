@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const denunciasComentariosController = require('../controllers/comentarios/denunciasComentariosControllers');
+const denunciasComentariosControllers = require('../../controllers/comentarios/denunciasComentariosControllers');
 const { requireAuth } = require('../middleware/auth');
 
 
-router.post('/:comentarioId', requireAuth, denunciasComentariosController.guardar);
+router.post('/:comentarioId', requireAuth, denunciasComentariosControllers.guardar);
 
 // Ver denuncias de comentarios recibidas
-router.get('/', requireAuth, denunciasComentariosController.listar);
+router.get('/', requireAuth, denunciasComentariosControllers.listar);
 
 module.exports = router;

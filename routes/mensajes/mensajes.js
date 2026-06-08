@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const mensajesControllers = require('../controllers/mensajes/mensajesControllers');
-const { requireAuth } = require('../middleware/auth');
+const { requireAuth } = require('../../middleware/auth');
 
 router.get('/', requireAuth, mensajesControllers.recibidos);
 

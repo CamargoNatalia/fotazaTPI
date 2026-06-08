@@ -27,10 +27,10 @@ const usuariosRoutes = require('./routes/principal/usuarios');
 const administradorRoutes = require('./routes/principal/admin');
 const seguidoresRoutes = require('./routes/principal/seguidores');
 
-//publicaciones 
-const subirRoutes = require('./routes/publicacion/subirRoutes');
+//publicaciones
+const subirRoutes = require('./routes/publicacion/subirRoutes'); 
 const publicacionesRoutes = require('./routes/publicacion/publicacionesRoutes');
-const etiquetasRoutes = require('./routes/publicacion/etiquetas');
+const etiquetasRoutes = require('./routes/publicacion/etiquetasRoutes');
 const publicarEtiquetasRoutes = require('./routes/publicacion/publicarEtiquetas');
 
 //interacciones del sistema

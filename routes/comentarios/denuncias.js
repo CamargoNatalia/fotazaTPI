@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const denunciasControllers = require('../controllers/comentarios/denunciasControllers');
+const denunciasControllers = require('../../controllers/comentarios/denunciasControllers');
 const { requireAuth } = require('../middleware/auth');
 
 

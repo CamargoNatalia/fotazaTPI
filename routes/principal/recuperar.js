@@ -1,5 +1,5 @@
 const express = require('express');
-const recuperarControllers = require('../controllers/usuarios/recuperarController');
+const recuperarControllers = require('../../controllers/usuarios/recuperarController');
 
 const router = express.Router();
 

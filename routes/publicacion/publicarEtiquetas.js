@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const publicacionEtiquetaController = require('../controllers/publicaciones/publicacionEtiquetaControllers');
+const publicacionEtiquetaControllers = require('../../controllers/publicaciones/publicacionEtiquetaControllers');
 const { requireAuth } = require('../../middleware/auth');
 
 // Asocio etiquetas a una publicación

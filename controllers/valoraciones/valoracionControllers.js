@@ -1,6 +1,6 @@
-const Valoracion = require('../models/Valoracion');
-const Archivo = require('../models/Archivo');
-const Publicacion = require('../models/Publicacion');
+const Valoracion = require('../../models/Valoracion');
+const Archivo = require('../../models/Archivo');
+const Publicacion = require('../../models/Publicacion');
 
 async function guardar(req, res) {
 
