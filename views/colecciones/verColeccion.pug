@@ -1,0 +1,62 @@
+extends layout.pug
+
+block content
+
+  .ver-coleccion-container
+
+    .ver-coleccion-card
+
+      h1
+        | 📁 Colección: #{coleccion.nombre}
+
+      a.btn(
+        href='/colecciones'
+      )
+        | Volver a mis colecciones
+
+      if coleccion.Publicacions && coleccion.Publicacions.length > 0
+
+        each publicacion in coleccion.Publicacions
+
+          article.publicacion-coleccion
+
+            h3
+              | #{publicacion.Usuario ? publicacion.Usuario.nombre : 'Usuario'}
+
+            if publicacion.descripcion
+
+              p
+                | #{publicacion.descripcion}
+
+            if publicacion.Archivos && publicacion.Archivos.length > 0
+
+              each archivo in publicacion.Archivos
+
+                if archivo.tipo && archivo.tipo.startsWith('image')
+
+                  img.coleccion-imagen(
+                    src=`/uploads/${archivo.rutaProtegida || archivo.ruta}`
+                    alt='Imagen de publicación'
+                  )
+
+                else if archivo.tipo && archivo.tipo.startsWith('video')
+
+                  video.coleccion-video(
+                    controls
+                  )
+
+                    source(
+                      src=`/uploads/${archivo.ruta}`
+                      type=archivo.tipo
+                    )
+
+            if publicacion.createdAt
+
+              p
+                strong Fecha:
+                |  #{publicacion.createdAt}
+
+      else
+
+        p.sin-publicaciones
+          | Esta colección todavía no tiene publicaciones.

@@ -440,3 +440,147 @@ th {
     color: #777;
     padding: 20px;
 }
+
+/* MIS COLECCIONES*/
+
+.colecciones-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.colecciones-card {
+    width: 100%;
+    max-width: 900px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.1);
+}
+
+.colecciones-card h1 {
+    margin-bottom: 20px;
+}
+
+.coleccion-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #fafafa;
+}
+
+.coleccion-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.coleccion-item p {
+    margin-bottom: 15px;
+}
+
+.sin-colecciones {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
+
+/*  NUEVA COLECCIÓN */
+
+.nueva-coleccion-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.nueva-coleccion-card {
+    width: 100%;
+    max-width: 900px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.1);
+}
+
+.nueva-coleccion-card h1 {
+    margin-bottom: 20px;
+}
+
+.nueva-coleccion-card h2 {
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+.acciones-coleccion {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.coleccion-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+}
+
+.coleccion-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* VER COLECCIÓN */
+
+.ver-coleccion-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.ver-coleccion-card {
+    width: 100%;
+    max-width: 1000px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.1);
+}
+
+.ver-coleccion-card h1 {
+    margin-bottom: 20px;
+}
+
+.publicacion-coleccion {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #fafafa;
+}
+
+.publicacion-coleccion h3 {
+    margin-top: 0;
+}
+
+.coleccion-imagen {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.coleccion-video {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sin-publicaciones {
+    text-align: center;
+    color: #777;
+    padding: 20px;
+}
