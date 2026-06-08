@@ -1,5 +1,5 @@
-const Mensaje = require('../models/Mensaje');
-const Usuario = require('../models/Usuario');
+const Mensaje = require('../../models/Mensaje');
+const Usuario = require('../../models/Usuario');
 const { Op } = require('sequelize');
 
 

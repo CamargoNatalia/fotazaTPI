@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const { authenticateUser, logout } = require('../middleware/auth');
-const indexController = require('../../controllers/usuarios/indexControllers');
-const notificacionesController =require('../../controllers/notificaciones/notificacionesControllers');
+const { authenticateUser, logout } = require('../../middleware/auth');
+const indexControllers = require('../../controllers/usuarios/indexControllers');
+const notificacionesControllers =require('../../controllers/comentarios/notificacionesControllers');
 
 
 

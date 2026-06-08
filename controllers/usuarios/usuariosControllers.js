@@ -1,8 +1,8 @@
-const Usuario = require('../models/Usuario');
-const Seguidor = require('../models/Seguidor');
-const Publicacion = require('../models/Publicacion');
-const Archivo = require('../models/Archivo');
-const Notificacion = require('../models/Notificacion');
+const Usuario = require('../../models/Usuario');
+const Seguidor = require('../../models/Seguidor');
+const Publicacion = require('../../models/Publicacion');
+const Archivo = require('../../models/Archivo');
+const Notificacion = require('../../models/Notificacion');
 
 const { Op } = require('sequelize');
 

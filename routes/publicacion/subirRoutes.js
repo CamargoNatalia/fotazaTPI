@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const subirController = require('../controllers/publicaciones/subirController');
-const upload = require('../middleware/upload');
+const subirControllers = require('../../controllers/publicaciones/subirControllers');
+const upload = require('../../middleware/uploads');
 
 function validarSesion(req, res, next) {
   if (!req.session.userId) {
@@ -15,9 +15,9 @@ function validarSesion(req, res, next) {
 }
 
 
-router.get('/', subirController.formulario);
+router.get('/', subirControllers.formulario);
 
 // Guardar publicación
-router.post('/', validarSesion, upload.array('imagenes'), subirController.guardar);
+router.post('/', validarSesion, upload.array('imagenes'), subirControllers.guardar);
 
 module.exports = router;

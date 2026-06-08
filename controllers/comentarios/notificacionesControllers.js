@@ -1,10 +1,10 @@
-const Comentario = require('../models/Comentario');
-const Valoracion = require('../models/Valoracion');
-const Usuario = require('../models/Usuario');
-const Publicacion = require('../models/Publicacion');
-const Archivo = require('../models/Archivo');
-const Notificacion = require('../models/Notificacion');
-const Seguidor = require('../models/Seguidor');
+const Comentario = require('../../models/Comentario');
+const Valoracion = require('../../models/Valoracion');
+const Usuario = require('../../models/Usuario');
+const Publicacion = require('../../models/Publicacion');
+const Archivo = require('../../models/Archivo');
+const Notificacion = require('../../models/Notificacion');
+const Seguidor = require('../../models/Seguidor');
 
 
 async function comentariosRecibidos(req, res) {
