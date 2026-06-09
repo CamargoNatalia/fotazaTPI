@@ -1,0 +1,13 @@
+div.likes
+
+    form(
+        action=`/likes/${publicacion.id}`
+        method='POST'
+    )
+
+        button(type='submit')
+            | ❤️ Me gusta
+
+    p
+        | Likes:
+        strong= publicacion.Likes ? publicacion.Likes.length : 0
