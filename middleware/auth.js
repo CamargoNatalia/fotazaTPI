@@ -24,6 +24,7 @@ const authenticateUser = async (req, res, next) => {
     const usuario = await Usuario.findOne({
       where: { dni: dni }
     });
+    
 
     if (!usuario) {
       return res.render('login', {

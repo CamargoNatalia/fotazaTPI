@@ -24,6 +24,7 @@ router.post('/login', authenticateUser, (req, res) => {
   res.redirect('/');
 });
 
+
 router.get('/notificaciones',notificacionesControllers.nuevosSeguidores);
 
 router.get('/logout', logout);
