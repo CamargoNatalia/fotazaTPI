@@ -1,0 +1,70 @@
+- const cantidadValoraciones = archivo.Valoracions ? archivo.Valoracions.length : 0
+- const sumaValoraciones = archivo.Valoracions ? archivo.Valoracions.reduce((total, v) => total + v.valor, 0) : 0
+- const promedioValoraciones = cantidadValoraciones > 0 ? (sumaValoraciones / cantidadValoraciones).toFixed(1) : 'Sin valoraciones'
+
+div.promedio-valoracion.mt-2
+
+    if cantidadValoraciones > 0
+
+        p
+            strong Valoración promedio:
+            | #{promedioValoraciones} / 5
+
+        p
+            strong Cantidad de valoraciones:
+            | #{cantidadValoraciones}
+
+    else
+
+        p.text-muted
+            | Esta imagen todavía no tiene valoraciones.
+
+div.valoracion.mt-3
+
+    if currentUser
+
+        if currentUser.id !== publicacion.usuarioId
+
+            h5
+                | Valorar imagen
+
+            - const yaValoro = archivo.Valoracions && archivo.Valoracions.some(v => v.usuarioId === currentUser.id)
+
+            if yaValoro
+
+                select(name='valor' disabled)
+                    option Ya valoraste esta imagen
+
+                button.btn.btn-sm.btn-secondary.ms-2(
+                    type='button'
+                    disabled
+                )
+                    | Valoración registrada
+
+            else
+
+                form(
+                    action=`/valoraciones/${archivo.id}`
+                    method='POST'
+                )
+
+                    select(name='valor' required)
+
+                        option(value='')
+                            | Seleccionar valoración
+
+                        option(value='1') ⭐
+                        option(value='2') ⭐⭐
+                        option(value='3') ⭐⭐⭐
+                        option(value='4') ⭐⭐⭐⭐
+                        option(value='5') ⭐⭐⭐⭐⭐
+
+                    button.btn.btn-sm.btn-warning.ms-2(
+                        type='submit'
+                    )
+                        | Valorar
+
+    else
+
+        p.text-muted
+            | Inicia sesión para valorar imágenes.
