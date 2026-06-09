@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const valoracionControllers = require('../controllers/comentarios/valoracionControllers');
+const valoracionControllers = require('../../controllers/valoraciones/valoracionControllers');
 const { requireAuth } = require('../../middleware/auth');
 
 
