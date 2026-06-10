@@ -1,0 +1,20 @@
+if currentUser && publicacion.Usuario
+    if currentUser.id !== publicacion.usuarioId
+
+        - const yaSigue = publicacion.Usuario.seguidores && publicacion.Usuario.seguidores.some(s => s.seguidorId === currentUser.id)
+
+        if yaSigue
+            form(
+                action=`/usuarios/dejar-seguir/${publicacion.Usuario.id}`
+                method='POST'
+            )
+                button.btn.btn-sm.btn-danger(type='submit')
+                    | Dejar de seguir
+
+        else
+            form(
+                action=`/usuarios/seguir/${publicacion.Usuario.id}`
+                method='POST'
+            )
+                button.btn.btn-sm.btn-primary(type='submit')
+                    | Seguir

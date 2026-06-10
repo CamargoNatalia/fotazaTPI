@@ -707,3 +707,231 @@ th {
     color: #777;
     padding: 20px;
 }
+
+
+/* =========================
+   HOME FOTAZA
+========================= */
+
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f5f7fb;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.hero p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   BUSCADOR
+========================= */
+
+form.buscador {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+form.buscador div {
+    margin-bottom: 12px;
+}
+
+form.buscador input,
+form.buscador select,
+form.buscador textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+form.buscador label {
+    font-weight: bold;
+}
+
+/* =========================
+   PUBLICACIONES
+========================= */
+
+.publicacion {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+.publicacion h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.publicacion img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.publicacion video {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* =========================
+   CABECERA USUARIO
+========================= */
+
+.cabecera-publicacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   ETIQUETAS
+========================= */
+
+.etiquetas {
+    margin: 10px 0;
+}
+
+.badge {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: .85rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/* =========================
+   COMENTARIOS
+========================= */
+
+.comentarios {
+    margin-top: 20px;
+}
+
+.comentarios textarea {
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.border.rounded {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   LIKES Y VALORACIONES
+========================= */
+
+.likes {
+    margin-top: 15px;
+}
+
+.promedio-valoracion {
+    background: #fff8dc;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .3s;
+    margin-top: 5px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-warning {
+    background: #f39c12;
+    color: white;
+}
+
+.btn-success {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-secondary {
+    background: #7f8c8d;
+    color: white;
+}
+
+.btn-info {
+    background: #00bcd4;
+    color: white;
+}
+
+/* =========================
+   SEPARADORES
+========================= */
+
+hr {
+    border: none;
+    height: 1px;
+    background: #ddd;
+    margin: 30px 0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .cabecera-publicacion {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}

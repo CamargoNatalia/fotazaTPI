@@ -1,0 +1,99 @@
+h2 🔎 Explorar contenido
+
+form(action='/' method='GET')
+
+    div
+        label(for='buscar')
+            | Buscar texto:
+        br
+        input#buscar(
+            type='text'
+            name='buscar'
+            placeholder='Buscar por descripción, usuario o etiqueta...'
+            value=busqueda ? busqueda.buscar : ''
+        )
+
+    br
+
+    div
+        label(for='tipo')
+            | Tipo de contenido:
+        br
+        select#tipo(name='tipo')
+            option(value='')
+                | Todos
+            option(
+                value='image'
+                selected=busqueda && busqueda.tipo === 'image'
+            )
+                | Imágenes
+            option(
+                value='video'
+                selected=busqueda && busqueda.tipo === 'video'
+            )
+                | Videos
+
+    br
+
+    div
+        label(for='ordenar')
+            | Ordenar por:
+        br
+        select#ordenar(name='ordenar')
+            option(value='')
+                | Más recientes
+            option(
+                value='valoracion'
+                selected=busqueda && busqueda.ordenar === 'valoracion'
+            )
+                | Mejor valoración
+            option(
+                value='likes'
+                selected=busqueda && busqueda.ordenar === 'likes'
+            )
+                | Más likes
+
+    br
+
+    div
+        label(for='fechaDesde')
+            | Fecha desde:
+        br
+        input#fechaDesde(
+            type='date'
+            name='fechaDesde'
+            value=busqueda ? busqueda.fechaDesde : ''
+        )
+
+    br
+
+    div
+        label(for='fechaHasta')
+            | Fecha hasta:
+        br
+        input#fechaHasta(
+            type='date'
+            name='fechaHasta'
+            value=busqueda ? busqueda.fechaHasta : ''
+        )
+
+    br
+
+    div
+        label(for='likesMinimos')
+            | Likes mínimos:
+        br
+        input#likesMinimos(
+            type='number'
+            name='likesMinimos'
+            min='0'
+            value=busqueda ? busqueda.likesMinimos : ''
+        )
+
+    br
+
+    button.btn(type='submit')
+        | Buscar
+
+    a.btn(href='/')
+        | Limpiar búsqueda

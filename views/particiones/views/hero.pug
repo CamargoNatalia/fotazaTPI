@@ -1,0 +1,22 @@
+section.hero
+
+    h1 Fotaza
+
+    p
+        | Compartí fotografías y videos, descubrí nuevos autores y conectate con la comunidad.
+
+    if currentUser
+
+        p
+            | ¡Bienvenido nuevamente a Fotaza!
+
+        a.btn(href='/subir')
+            | Crear publicación
+
+    else
+
+        p
+            | Iniciá sesión para publicar, valorar imágenes, seguir usuarios y participar de la comunidad.
+
+        a.btn(href='/login')
+            | Iniciar sesión
