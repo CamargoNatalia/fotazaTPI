@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.use(requireAuth);
 
-router.get('/', usuariosControllers.listar);
-router.get('/nuevo', requireAdmin, usuariosControllers.formulario);
-router.post('/nuevo', requireAdmin, usuariosControllers.crear);
+router.get('/', requireAuth, usuariosControllers.listar);
+router.get('/nuevo',  usuariosControllers.formulario);
+router.post('/nuevo',  usuariosControllers.crear);
 
 module.exports = router;

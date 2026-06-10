@@ -21,20 +21,20 @@ const PORT = process.env.PORT || 3000;
 
 
 // Rutas principales
-const indexRoutes = require('./routes/eje/index');
-const usuariosRoutes = require('./routes/eje/usuarios');
-const administradorRoutes = require('./routes/eje/admin');
-const seguidoresRoutes = require('./routes/seguidores');
-const modificarContraRoutes = require('./routes/eje/modificarContra');
-const recuperarRoutes = require('./routes/eje/recuperarContra');
+const indexRoutes = require('./routes/principal/index');
+const usuariosRoutes = require('./routes/principal/usuarios');
+const administradorRoutes = require('./routes/principal/admin');
+const seguidoresRoutes = require('./routes/principal/seguidores');
+const modificarContraRoutes = require('./routes/principal/modificarContraseña');
+const recuperarRoutes = require('./routes/principal/recuperar');
 
 
 //publicaciones
-const subirRoutes = require('./routes/publicaciones/subirRoutes'); 
-const publicacionesRoutes = require('./routes/publicaciones/publicacionesRoutes');
-const etiquetasRoutes = require('./routes/publicaciones/etiquetas');
-const publicarEtiquetasRoutes = require('./routes/publicaciones/publicarEtiquetas');
-const moderacionRoutes = require('./routes/publicaciones/moderacion');
+const subirRoutes = require('./routes/publicacion/subirRoutes'); 
+const publicacionesRoutes = require('./routes/publicacion/publicacionesRoutes');
+const etiquetasRoutes = require('./routes/publicacion/etiquetasRoutes');
+const publicarEtiquetasRoutes = require('./routes/publicacion/publicarEtiquetas');
+const moderacionRoutes = require('./routes/publicacion/moderacion');
 
 //interacciones del sistema
 const likesRoutes = require('./routes/comentarios/like');
@@ -49,7 +49,7 @@ const notificacionesRoutes = require('./routes/comentarios/notificaciones');
 const mensajesRoutes = require('./routes/mensajes/mensajes');
 
 
-const coleccionesRoutes = require('./routes/colecciones');
+const coleccionesRoutes = require('./routes/colecciones/colecciones');
 
 
 // Configuración de Pug

@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const Usuario = require('../models/Usuario');
+const Usuario = require('../../models/Usuario');
 
 async function formulario(req, res) {
   res.render('recuperar');
