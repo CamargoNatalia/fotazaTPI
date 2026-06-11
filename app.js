@@ -101,15 +101,18 @@ app.use('/denuncias-comentarios', denunciasComentariosRoutes);
 app.use('/notificaciones', notificacionesRoutes);
 
 sequelize
-  .sync()
+  .sync({ alter: true })
   .then(() => {
     console.log('Modelos sincronizados correctamente');
-
-    app.listen(PORT, () => {
-     console.log(`Servidor iniciado en http://localhost:${PORT}`);
-     
-    });
   })
   .catch((err) => {
     console.error('Error al sincronizar modelos:', err);
   });
+
+if (require.main === module) {
+  app.listen(PORT, '::', () => {
+    console.log(`Servidor iniciado en http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
