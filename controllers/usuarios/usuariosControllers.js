@@ -187,7 +187,7 @@ async function seguirUsuario(req, res) {
       usuarioId: seguidoId,
 
       mensaje:
-        '${seguidor.nombre} comenzó a seguirte'
+        `${seguidor.nombre} comenzó a seguirte`
 
     });
 

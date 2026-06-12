@@ -14,7 +14,7 @@ const { getCurrentUser } = require('./middleware/auth');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(getCurrentUser);
+app.use(getCurrentUser);
 
 
 const PORT = process.env.PORT || 3000;
@@ -36,7 +36,7 @@ const etiquetasRoutes = require('./routes/publicacion/etiquetasRoutes');
 const publicarEtiquetasRoutes = require('./routes/publicacion/publicarEtiquetas');
 const moderacionRoutes = require('./routes/publicacion/moderacion');
 
-//interacciones del sistema
+//interacciones
 const likesRoutes = require('./routes/comentarios/like');
 const comentariosRoutes = require('./routes/comentarios/comentarios');
 const valoracionesRoutes = require('./routes/comentarios/valoracion');
@@ -45,9 +45,7 @@ const denunciasComentariosRoutes = require('./routes/comentarios/denunciasComent
 const notificacionesRoutes = require('./routes/comentarios/notificaciones');
 
 
-//mensajes
 const mensajesRoutes = require('./routes/mensajes/mensajes');
-
 
 const coleccionesRoutes = require('./routes/colecciones/colecciones');
 

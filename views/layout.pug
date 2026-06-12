@@ -22,7 +22,7 @@ html
                             a(href='/notificaciones/comentarios') Comentarios recibidos
                             a(href='/notificaciones/valoraciones') Valoraciones recibidas
                             a(href='/intereses/mis-intereses') Me interesa
-                            a(href='/notificaciones/seguidores') Seguidores nuevos
+                            a(href='/notificaciones/seguidores') nuevos seguidores
                             a(href='/mensajes') Mensajes recibidos
 
                     if currentUser.rol === 'admin'
@@ -38,7 +38,7 @@ html
                 else
                     a(href='/login') Login
                         br
-                    a(href='/usuarios/nuevo') Registrarse
+                    a(href='usuarios/nuevo') Registrarse
 
         .contenedor
             block content
