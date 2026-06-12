@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const Usuario = require('../../models/Usuario');
 const Seguidor = require('../../models/Seguidor');
 const Publicacion = require('../../models/Publicacion');
@@ -86,12 +87,12 @@ async function crear(req, res) {
 
         where: {
 
-          [Op.or]: {
+          [Op.or]: [
 
-            dni: usuario.dni,
-            email: usuario.email
+            { dni: usuario.dni },
+            { email: usuario.email }
 
-          }
+          ]
 
         }
 
@@ -108,9 +109,23 @@ async function crear(req, res) {
 
     }
 
-    await Usuario.create(usuario);
+    // Encriptar contraseña
+    const passwordHash =
+      await bcrypt.hash(
+        usuario.password,
+        10
+      );
 
-    res.redirect('/usuarios');
+    await Usuario.create({
+
+      nombre: usuario.nombre,
+      dni: usuario.dni,
+      email: usuario.email,
+      password: passwordHash
+
+    });
+
+    res.redirect('/login');
 
   } catch (error) {
 
@@ -124,6 +139,7 @@ async function crear(req, res) {
     );
 
   }
+
 }
 
 
