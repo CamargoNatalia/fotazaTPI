@@ -66,7 +66,8 @@ async function crear(req, res) {
   if (
     !usuario.nombre ||
     !usuario.dni ||
-    !usuario.email
+    !usuario.email ||
+    !usuario.password
   ) {
 
     return res.status(400).render(
