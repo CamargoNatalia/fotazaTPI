@@ -1,4 +1,5 @@
 doctype html
+
 html
     head
         meta(charset='UTF-8')
@@ -7,38 +8,72 @@ html
         link(rel='stylesheet' href='/css/style.css')
 
     body
+
         nav
+
             div.items
-                a(href='/') Inicio
+
+                a(href='/')
+                    | Inicio
 
                 if currentUser
-                    a(href='/subir') Subir publicación
+
+                    a(href='/subir')
+                        | Subir publicación
 
                     div.menu-notificaciones
+
                         button.boton-notificaciones(type='button')
                             | Notificaciones ▾
 
                         div.opciones-notificaciones
-                            a(href='/notificaciones/comentarios') Comentarios recibidos
-                            a(href='/notificaciones/valoraciones') Valoraciones recibidas
-                            a(href='/intereses/mis-intereses') Me interesa
-                            a(href='/notificaciones/seguidores') nuevos seguidores
-                            a(href='/mensajes') Mensajes recibidos
+
+                            a(href='/notificaciones/comentarios')
+                                | Comentarios recibidos
+
+                            a(href='/notificaciones/valoraciones')
+                                | Valoraciones recibidas
+
+                            a(href='/intereses/mis-intereses')
+                                | Me interesa
+
+                            a(href='/notificaciones/seguidores')
+                                | Nuevos seguidores
+
+                            a(href='/mensajes')
+                                | Mensajes recibidos
 
                     if currentUser.rol === 'admin'
-                        a(href='/usuarios') Usuarios
-                        a(href='/administrador') Administrador
 
-                    a(href='/modificarContraseña') Modificar contraseña
+                        a(href='/usuarios')
+                            | Usuarios
+
+                        a(href='/administrador')
+                            | Administrador
+
+                    a(href='/modificarContraseña')
+                        | Modificar contraseña
 
             div.login
+
                 if currentUser
-                    span Bienvenido, #{currentUser.nombre} (#{currentUser.rol})
-                    a(href='/logout') Cerrar Sesión
+
+                    span
+                        | Bienvenido, #{currentUser.nombre} (#{currentUser.rol})
+
+                    a(href='/logout')
+                        | Cerrar sesión
+
                 else
-                    a(href='/login') Login
-                        br
-                    a(href='usuarios/nuevo') Registrarse
+
+                    a(href='/login')
+                        | Login
+
+                    br
+
+                    a(href='/usuarios/nuevo')
+                        | Registrarse
 
         .contenedor
+
             block content

@@ -69,7 +69,8 @@ th {
 
 .menu-notificaciones {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 .boton-notificaciones {
@@ -87,7 +88,6 @@ th {
     background-color: white;
     border: 1px solid #333;
     min-width: 180px;
-    z-index: 10;
 }
 
 .opciones-notificaciones a {
