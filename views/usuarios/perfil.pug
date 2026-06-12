@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+
+    h1= usuario.nombre
+
+    p
+        strong Seguidores:
+        | #{seguidores}
+
+    p
+        strong Seguidos:
+        | #{seguidos}
+
+    hr
+
+    h2 Publicaciones
+
+    if usuario.Publicacions.length > 0
+
+        each publicacion in usuario.Publicacions
+
+            .card.mb-3.p-3
+
+                p= publicacion.descripcion
+
+                if publicacion.createdAt
+                    small
+                        | #{publicacion.createdAt}
+
+    else
+
+        p Este usuario no tiene publicaciones.

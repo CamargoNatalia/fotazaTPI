@@ -31,7 +31,7 @@ async function listar(req, res) {
 
       });
 
-    res.render('moderacion', {
+    res.render('publicaciones/moderacion', {
       publicaciones
     });
 

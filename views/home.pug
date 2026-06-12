@@ -1,7 +1,6 @@
-extends layout.pug
+extends layout
 
 block content
-
     h1 Fotaza
 
     p
@@ -20,7 +19,6 @@ block content
     else
         p
             | Para subir una publicación primero tenés que iniciar sesión.
-
         a.btn(href='/login')
             | Iniciar sesión
 
@@ -29,7 +27,6 @@ block content
     h2 Buscar publicaciones
 
     form(action='/' method='GET')
-
         div
             label(for='buscar')
                 | Buscar texto:
@@ -119,23 +116,18 @@ block content
     h2 Publicaciones recientes
 
     if publicaciones && publicaciones.length > 0
-
         each publicacion in publicaciones
-
             article.publicacion
-
                 h3= publicacion.Usuario ? publicacion.Usuario.nombre : 'Usuario desconocido'
 
                 if currentUser && publicacion.Usuario
-
                     if currentUser.id !== publicacion.usuarioId
-
                         - const yaSigue = siguiendo && siguiendo.includes(publicacion.Usuario.id)
-
                         if yaSigue
                             form(
                                 action=`/usuarios/dejar-seguir/${publicacion.Usuario.id}`
                                 method='POST'
+                                style='display: inline-block;'
                             )
                                 button.btn.btn-sm.btn-danger(type='submit')
                                     | Dejar de seguir
@@ -143,6 +135,7 @@ block content
                             form(
                                 action=`/usuarios/seguir/${publicacion.Usuario.id}`
                                 method='POST'
+                                style='display: inline-block;'
                             )
                                 button.btn.btn-sm.btn-primary(type='submit')
                                     | Seguir
@@ -165,9 +158,7 @@ block content
                         | Sin etiquetas.
 
                 if publicacion.Archivos && publicacion.Archivos.length > 0
-
                     each archivo in publicacion.Archivos
-
                         if archivo.tipo && archivo.tipo.startsWith('image')
                             if archivo.tieneCopyright && archivo.rutaProtegida
                                 img(
@@ -181,14 +172,12 @@ block content
                                     alt='Imagen original'
                                     width='100%'
                                 )
-
                         else if archivo.tipo && archivo.tipo.startsWith('video')
                             video(width='100%' controls)
                                 source(
                                     src=archivo.ruta
                                     type=archivo.tipo
                                 )
-
                         else
                             p.text-muted
                                 | Archivo no compatible
@@ -214,14 +203,11 @@ block content
                                 if currentUser.id !== publicacion.usuarioId
                                     h5
                                         | Valorar imagen
-
                                     - const yaValoro = archivo.Valoracions && archivo.Valoracions.some(v => v.usuarioId === currentUser.id)
-
                                     if yaValoro
                                         select(name='valor' disabled)
                                             option
                                                 | Ya valoraste esta imagen
-
                                         button.btn.btn-sm.btn-secondary.ms-2(type='button' disabled)
                                             | Valoración registrada
                                     else
@@ -239,7 +225,6 @@ block content
                                                     | 4 ⭐⭐⭐⭐
                                                 option(value='5')
                                                     | 5 ⭐⭐⭐⭐⭐
-
                                             button.btn.btn-sm.btn-warning.ms-2(type='submit')
                                                 | Valorar
                             else
@@ -257,7 +242,6 @@ block content
                     form(action=`/likes/${publicacion.id}` method='POST')
                         button(type='submit')
                             | ❤️ Me gusta
-
                     p
                         | Cantidad de likes:
                         strong= publicacion.Likes ? publicacion.Likes.length : 0
@@ -279,7 +263,6 @@ block content
                     if currentUser
                         h5
                             | Guardar en colección
-
                         if colecciones && colecciones.length > 0
                             each coleccion in colecciones
                                 form(
@@ -296,7 +279,6 @@ block content
                 div.denuncia.mt-3
                     if currentUser
                         - const yaDenuncio = publicacion.Denuncia && publicacion.Denuncia.some(d => d.usuarioId === currentUser.id)
-
                         if yaDenuncio
                             button.btn.btn-sm.btn-secondary(type='button' disabled)
                                 | Ya denunciaste esta publicación
@@ -315,6 +297,7 @@ block content
                         form(
                             action=`/publicaciones/${publicacion.id}/modificar-estado-comentarios`
                             method='POST'
+                            style='display: inline-block;'
                         )
                             if publicacion.comentarios_habilitados
                                 button.btn.btn-sm.btn-secondary.mb-2(type='submit')
@@ -327,14 +310,10 @@ block content
                         each comentario in publicacion.Comentarios
                             .border.rounded.p-2.mb-2
                                 strong= comentario.Usuario ? comentario.Usuario.nombre : 'Usuario'
-
                                 p.mb-0= comentario.contenido
-
                                 if currentUser && currentUser.id !== comentario.usuarioId
                                     - const yaDenuncioComentario = comentario.DenunciaComentarios && comentario.DenunciaComentarios.some(function(d) { return d.usuarioId === currentUser.id; })
-
                                     br
-
                                     if yaDenuncioComentario
                                         button.btn.btn-sm.btn-secondary(type='button' disabled)
                                             | Ya denunciaste este comentario
@@ -358,7 +337,6 @@ block content
                                     placeholder='Escribí un comentario...'
                                     required
                                 )
-
                                 button.btn.btn-sm.btn-primary.mt-2(type='submit')
                                     | Comentar
                         else
@@ -366,13 +344,22 @@ block content
                                 | Los comentarios fueron deshabilitados por el autor de la publicación.
                     else
                         p
-                            | Para comentar tenés que
+                            | Para comentar tenés que 
                             a(href='/login')
                                 | iniciar sesión
                             | .
 
-                hr
+                    if currentUser && currentUser.id === publicacion.usuarioId
+                        form(
+                            action=`/publicaciones/${publicacion.id}/eliminar`
+                            method='POST'
+                            onsubmit='return confirm("¿Estás seguro de que querés eliminar esta publicación?")' 
+                            style='display: inline-block; margin-top: 10px;'
+                        )
+                            button.btn.btn-sm.btn-danger(type='submit')
+                                |  Eliminar publicación
 
+                hr
     else
         if busqueda
             p

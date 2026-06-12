@@ -46,7 +46,6 @@ async function guardar(req, res) {
   }
 }
 
-// ============================================================================
 // lista de denuncias de comentarios
 
 async function listar(req, res) {

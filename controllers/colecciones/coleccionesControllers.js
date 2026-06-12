@@ -16,7 +16,7 @@ async function listar(req, res) {
       order: [['createdAt', 'DESC']]
     });
 
-    res.render('colecciones', {
+    res.render('colecciones/colecciones', {
       colecciones
     });
 
@@ -71,7 +71,7 @@ async function guardar(req, res) {
     const { nombre } = req.body;
 
     if (!nombre || nombre.trim() === '') {
-      return res.render('nuevaColeccion', {
+      return res.render('colecciones/nuevaColeccion', {
         error: 'Debe ingresar un nombre'
       });
     }
@@ -86,7 +86,7 @@ async function guardar(req, res) {
     });
 
     if (coleccionExistente) {
-      return res.render('nuevaColeccion', {
+      return res.render('colecciones/nuevaColeccion', {
         error: 'Ya tenés una colección con ese nombre'
       });
     }

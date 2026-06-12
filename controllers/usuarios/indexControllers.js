@@ -5,8 +5,10 @@ const Like = require('../../models/Like');
 const Comentario = require('../../models/Comentario');
 const Valoracion = require('../../models/Valoracion');
 const Etiqueta = require('../../models/Etiqueta');
+const Coleccion = require('../../models/Coleccion');  
+const Seguidor = require('../../models/Seguidor'); 
 
-// CALCULAR DATOS DE VALORACIÓN
+
 function calcularDatosValoracion(publicacion) {
   let suma = 0;
   let cantidad = 0;

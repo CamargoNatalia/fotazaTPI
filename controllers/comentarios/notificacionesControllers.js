@@ -30,7 +30,7 @@ async function comentariosRecibidos(req, res) {
       );
     });
 
-    res.render('comentariosRecibidos', {
+    res.render('comentarios/comentariosRecibidos', {
       comentarios: comentariosFiltrados
     });
 
@@ -70,7 +70,7 @@ async function valoracionesRecibidas(req, res) {
       );
     });
 
-    res.render('valoracionesRecibidas', {
+    res.render('valoraciones/valoracionesRecibidas', {
       valoraciones: valoracionesFiltradas
     });
 

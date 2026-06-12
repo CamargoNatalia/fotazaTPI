@@ -2,6 +2,12 @@
 // npm install express sequelize mysql2 multer express-session pug bcrypt dotenv sharp
 require('dotenv').config();
 
+console.log('Cloudinary config:', {
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY ? '***' : 'NO DEFINIDA',
+  api_secret: process.env.CLOUDINARY_API_SECRET ? '***' : 'NO DEFINIDA'
+});
+
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -43,7 +49,9 @@ const denunciasRoutes = require('./routes/comentarios/denuncias');
 const denunciasComentariosRoutes = require('./routes/comentarios/denunciasComentarios');
 const notificacionesRoutes = require('./routes/comentarios/notificaciones');
 
-
+//intereses
+const interesesRoutes = require('./routes/mensajes/intereses');
+const interesadosRoutes = require('./routes/mensajes/interesados');
 const mensajesRoutes = require('./routes/mensajes/mensajes');
 
 const coleccionesRoutes = require('./routes/colecciones/colecciones');
@@ -96,6 +104,13 @@ app.use('/valoraciones', valoracionesRoutes);
 app.use('/denuncias', denunciasRoutes);
 app.use('/denuncias-comentarios', denunciasComentariosRoutes);
 app.use('/notificaciones', notificacionesRoutes);
+
+
+//intereses
+app.use('/intereses', interesesRoutes);
+
+app.use('/interesados', interesadosRoutes);
+
 
 sequelize
   .sync({ alter: true })

@@ -66,11 +66,9 @@ th {
 }
 
 /* menu de notificaciones */
-
 .menu-notificaciones {
     position: relative;
-    display: flex;
-    align-items: center;
+    display: inline-block;  /* Cambiar de flex a inline-block */
 }
 
 .boton-notificaciones {
@@ -88,12 +86,16 @@ th {
     background-color: white;
     border: 1px solid #333;
     min-width: 180px;
+    top: 100%;  /* Para que aparezca debajo del botón */
+    left: 0;
+    z-index: 10;
 }
 
 .opciones-notificaciones a {
     display: block;
     padding: 8px 10px;
     color: blue;
+    text-decoration: none;
 }
 
 .opciones-notificaciones a:hover {
