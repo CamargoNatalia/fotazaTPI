@@ -68,7 +68,7 @@ Gestión de denuncias
 ## Instalación para el proyecto
 
 repositorio:
-git clone https://github.com/CamargoNatalia/Fotaza-TPI.git
+git clone https://github.com/CamargoNatalia/fotazaTPI.git
 
 ## Dependencias:
 
@@ -123,3 +123,6 @@ fotaza-tpi
 Usuarios:
 DNI 12345678 Contraseña test123(usuarioADMIN)
 DNI 333 Contraseña 5678(usuarioComun)
+
+URL de produccion:(Vercel)
+https://fotaza-tpi.vercel.app/
