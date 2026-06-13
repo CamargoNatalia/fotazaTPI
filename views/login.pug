@@ -1,40 +1,38 @@
 extends layout
 
 block content
+    .login-container
+        .login-card
+            h1 Fotaza
+            .login-subtitulo Compartí tus momentos favoritos
 
-    h1 Iniciar Sesión
+            if error
+                .error-message #{error}
 
-    if error
-        .error-message= error
+            form(action='/login' method='POST')
+                .form-group
+                    label(for='dni') DNI
+                    input#dni(
+                        type='text'
+                        name='dni'
+                        placeholder='Ingresá tu DNI'
+                        required
+                        autofocus
+                    )
 
-    form(action='/login' method='POST')
+                .form-group
+                    label(for='password') Contraseña
+                    input#password(
+                        type='password'
+                        name='password'
+                        placeholder='********'
+                        required
+                    )
 
-        div
-            label(for='dni') DNI:
-            input(
-                type='text'
-                id='dni'
-                name='dni'
-                required
-            )
+                button.btn-login-moderno(type='submit') Ingresar
 
-        div
-            label(for='password') Contraseña:
-            input(
-                type='password'
-                id='password'
-                name='password'
-                required
-            )
-
-        button(type='submit')
-            | Ingresar
-
-    p
-        a(href='/recuperar')
-            | ¿Olvidaste tu contraseña?
-
-    p
-        | ¿No tenés cuenta?
-        a(href='/usuarios/nuevo')
-            | Registrate
+            .login-links
+                a(href='/recuperar') ¿Olvidaste tu contraseña?
+                p
+                    | ¿No tenés cuenta? 
+                    a(href='/usuarios/nuevo') Registrate

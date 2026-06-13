@@ -2,12 +2,6 @@
 // npm install express sequelize mysql2 multer express-session pug bcrypt dotenv sharp
 require('dotenv').config();
 
-console.log('Cloudinary config:', {
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY ? '***' : 'NO DEFINIDA',
-  api_secret: process.env.CLOUDINARY_API_SECRET ? '***' : 'NO DEFINIDA'
-});
-
 const express = require('express');
 const path = require('path');
 const session = require('express-session');

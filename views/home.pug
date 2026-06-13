@@ -136,7 +136,9 @@ block content
                 div.likes
                     form(action=`/likes/${publicacion.id}` method='POST')
                         button(type='submit') ❤️ Me gusta
-                    p Cantidad de likes: strong #{publicacion.Likes ? publicacion.Likes.length : 0}
+                            p
+            | Cantidad de likes: 
+            strong #{publicacion.Likes ? publicacion.Likes.length : 0}
 
                 div.interes
                     if currentUser

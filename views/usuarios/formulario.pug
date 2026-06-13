@@ -1,48 +1,53 @@
 extends ../layout
 
 block content
+  .registro-container
+    .registro-card
+      h1 Registro de Usuario
+      .registro-subtitulo Creá tu cuenta para compartir momentos
 
-  h1 Registro de usuario
+      if error
+        .error-message #{error}
 
-  if error
-    p (style='color:red')= error
+      form(action='/usuarios/nuevo' method='POST')
+        .form-group
+          label(for='nombre') Nombre completo
+          input#nombre(
+            type='text'
+            name='nombre'
+            placeholder='Ej: Juan Pérez'
+            required
+          )
 
-  form(action='/usuarios/nuevo' method='POST')
+        .form-group
+          label(for='dni') DNI
+          input#dni(
+            type='text'
+            name='dni'
+            placeholder='Ej: 12345678'
+            required
+          )
 
-    div
-      label(for='nombre') Nombre:
-      input(
-        type='text'
-        id='nombre'
-        name='nombre'
-        required
-      )
+        .form-group
+          label(for='email') Correo electrónico
+          input#email(
+            type='email'
+            name='email'
+            placeholder='ejemplo@correo.com'
+            required
+          )
 
-    div
-      label(for='dni') DNI:
-      input(
-        type='text'
-        id='dni'
-        name='dni'
-        required
-      )
+        .form-group
+          label(for='password') Contraseña
+          input#password(
+            type='password'
+            name='password'
+            placeholder='********'
+            required
+          )
 
-    div
-      label(for='email') Email:
-      input(
-        type='email'
-        id='email'
-        name='email'
-        required
-      )
+        button.btn-registro(type='submit') Registrarse
 
-    div
-      label(for='password') Contraseña:
-      input(
-        type='password'
-        id='password'
-        name='password'
-        required
-      )
-
-    button(type='submit') Registrarse
+      .registro-footer
+        | ¿Ya tenés cuenta? 
+        a(href='/login') Iniciar sesión
